@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
-const config = require("config");
 const dbgr = require("debug")("development:mongoose");
+const config = require("config");
 
-mongoose.connect(`${config.get("MONGO_URL")}/scatch`)
+mongoose.connect(`${config.get("MONGO_URI")}/scatch`)
 .then(()=>{
      dbgr("connected");
 })
@@ -10,4 +10,4 @@ mongoose.connect(`${config.get("MONGO_URL")}/scatch`)
      dbgr(err);
 })
 
-module.exports = mongoose.connection;  
+module.exports = mongoose.connection;
